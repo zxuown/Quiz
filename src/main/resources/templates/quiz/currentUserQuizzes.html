@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <title>Your quizzes</title>
+</head>
+<body>
+<div th:replace="/fragments/layout::nav"></div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h1 th:text="${#authentication.getName()}"></h1>
+            <a class="btn btn-primary" th:href="@{/quiz/add-quiz}">Add</a>
+            <div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Active</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="quiz, iStat : ${quizzes}">
+                        <td th:text="${quiz.id}"></td>
+                        <td>
+                            <img th:if="${quiz.imgUrl != null and !quiz.imgUrl.isEmpty()}"
+                                 th:src="@{~/images/{imgUrl}(imgUrl=${quiz.imgUrl})}" class="img-thumbnail"/>
+                        </td>
+                        <td th:text="${quiz.title}"></td>
+                        <td th:text="${quiz.description}"></td>
+                        <td th:text="${quiz.active}"></td>
+                        <td>
+                            <div class="d-flex">
+                                <form class="m-2" method="get" th:action="@{/quiz/edit-quiz}" th:object="${quiz}">
+                                    <button type="submit" name="id" th:value="${quiz.id}" class="btn btn-success">Edit</button>
+                                </form>
+                                <form class="m-2"  method="post" th:action="@{/quiz/delete-quiz}" th:object="${quiz}">
+                                    <button type="submit" name="id" th:value="${quiz.id}" class="btn btn-danger">Delete</button>
+                                </form>
+                                <form class="m-2"  method="get" th:action="@{/question/quiz-questions}" th:object="${quiz}">
+                                    <button type="submit"  name="id" th:value="${quiz.id}" class="btn btn-info">Question(s)</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

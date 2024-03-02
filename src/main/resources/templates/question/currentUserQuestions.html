@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk-UA" xmlns:th="http://www.thymeleaf.org">
+<div id="ext_installed_id"></div>
+<head>
+    <style type="text/css">[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="На Урок!">
+    <meta name="msapplication-TileColor" content="#5362c2">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="//naurok.com.ua/manifest_push.json">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token"
+          content="260qKz99GXBpKdGcC2RsTutQVA3YKfIamSO-9OJszDSugFNSbQ90ORFxnKVCFxUp3BIcf4FvnCvdS-yFlwWZdg==">
+    <title>Тестування</title>
+    <meta name="google-site-verification" content="_PAYSIZqXxorQuFLK8-yW4jkm-0L1wmWwzeF7nncqtU">
+    <meta property="fb:app_id" content="589149888143238">
+    <meta property="og:locale" content="uk_UA">
+    <link href="/assets/f0db75bd7fb3b61fd5c2b967f1a77e3e/css/bootstrap.css" rel="stylesheet">
+    <link href="/js/vendor/bower/angular-confirm/dist/angular-confirm.min.css" rel="stylesheet">
+    <link href="/js/vendor/bower/angular-ui-notification/dist/angular-ui-notification.min.css" rel="stylesheet">
+    <link th:href="@{/css/quill.snow.css}" rel="stylesheet">
+    <link th:href="@{/css/quill.bubble.css}" rel="stylesheet">
+    <link th:href="@{/css/site.full.css}" rel="stylesheet">
+    <link th:href="@{/css/latest.css}" rel="stylesheet">
+</head>
+<body style="margin:0;">
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNK9QD9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<div class="activity-wrapper">
+    <style>
+        body, html {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @keyframes rainbow {
+            0% { border-color: red; }
+            16.666% { border-color: orange; }
+            33.333% { border-color: yellow; }
+            50% { border-color: green; }
+            66.666% { border-color: blue; }
+            83.333% { border-color: indigo; }
+            100% { border-color: violet; }
+        }
+        .rainbow-border {
+            width: 50%;
+            height: 30%;
+            text-align: center;
+            font-size: 100%;
+            border: 5px solid;
+            animation: rainbow 4s linear infinite alternate;
+        }
+        .rainbow-border {
+            border-color: red;
+        }
+    </style>
+    <div ng-app="testik" ng-controller="TestCtrl" ng-init="init(172027,438775757, 1708541151)" class="default"
+         oncopy="return false" oncut="return false" onpaste="return false">
+        <nav id="w0" class="test-header animated fadeInDown anim-300-duration" style="">
+            <div class="container-fluid-test">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="animated fadeInDown" style="color:#fff" ng-show="test.questions.length > 0">
+                            <div class="numberQuestionsLeft" ng-show="test.questions.length > 0">
+                                <span ng-bind="test.session.answers+1" class="currentActiveQuestion ng-binding"
+                                      th:text="${questions.indexOf(question) + 1}"></span> /
+                                <span ng-bind="test.document.questions" class="ng-binding"
+                                      th:text="${questions.size()}"></span></div>
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right"
+                               title="Вимкнути звук" class="changeSoundTesting off ng-hide"
+                               ng-click="test.soundMode = 0"
+                               ng-show="test.questions.length > 0 &amp;&amp; test.soundMode == 1 &amp;&amp; test.settings.show_answer == 1"><i
+                                    class="fa fa-volume-up" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right"
+                               title="Вімкнути звук" class="changeSoundTesting onn ng-hide"
+                               ng-click="test.soundMode = 1"
+                               ng-show="test.questions.length > 0 &amp;&amp; test.soundMode == 0 &amp;&amp; test.settings.show_answer == 1"><i
+                                    class="fa fa-volume-off" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <!-- ngIf: !show_timer --><img th:src="@{~/images/quizerinaLogo.png}" height="40"
+                                                           ng-if="!show_timer"
+                                                           class="ng-scope"><!-- end ngIf: !show_timer -->
+                            <!-- ngIf: show_timer -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-right animated fadeInDown" style="color:#fff"
+                             ng-show="test.questions.length > 0">
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="left"
+                               title="Змінити шрифт" class="changeFontTesting default ng-hide"
+                               ng-click="test.font = 'default'" ng-show="test.font == 'dyslexia'"><i class="fa fa-font"
+                                                                                                     aria-hidden="true"></i>
+                                Звичайний</a>
+                            <a href="/" data-toggle="tooltip" data-placement="left" title="Завершити"
+                               class="endSessionButton" ng-click="test.endSession()"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="test-container default">
+            <div class="test-screen">
+                <div class="test-event-container">
+                    <div class="test-wrapper  animated fadeInDown">
+                        <div ng-show="test.questions.length <= 0" class="ng-hide">
+                            <div class="loader text-center  animated infinite pulse" style="color:#f48617"><i
+                                    class="fa fa-spinner fa-spin fa-3x fa-fw"
+                                    style="font-size:90px; position:relative; top:150px;"></i></div>
+                        </div>
+                        <div class="test-container-inner" ng-show="test.scene == 1">
+                            <div class="test-question-content animated zoomIn faster" ng-show="test.question.content">
+                                <div class="test-question-content-inner">
+                                    <div class="test-content-image ng-hide" ng-show="test.question.image">
+                                        <img ng-show="test.question.image" class="ng-hide">
+                                    </div>
+                                    <div class="test-content-text"
+                                         ng-class="{'scrolled' : layout.question.content.innerHeight > layout.question.height()-30}">
+                                        <div class="test-content-text-inner ng-binding " style="font-size:28px;"
+                                             ng-bind-html="renderHtml(test.question.content)">
+                                            <img th:if="${question.imgUrl != null and !question.imgUrl.isEmpty()}"
+                                                 th:src="@{~/images/{imgUrl}(imgUrl=${question.imgUrl})}" style="width: 10%; height: 5%">
+                                            <p th:id="${question.id}" class="questionId"
+                                               th:text="${question.title}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="test-question-options user-name"  th:id="${#authentication.getName()}" style="height: 100%;">
+                                <div style="display: flex">
+                                    <div th:if="${option.imgUrl != null and !option.imgUrl.isEmpty()}" th:each="option, iterStat : ${options}">
+                                        <p style="font-size: 30px" th:text="${iterStat.index + 1}"></p>
+                                        <img th:src="@{~/images/{imgUrl}(imgUrl=${option.imgUrl})}" style="width: 25%; height: 50%">
+                                    </div>
+                                </div>
+                                <div class="test-options-grid"
+                                     style="justify-items: center; padding: 5%; justify-content: center">
+                                    <!-- ngRepeat: v in test.question.options track by $index -->
+                                    <!--                                    <form method="post" th:action="@{/nextQuestion}">-->
+                                    <!--                                        <button type="submit" name="id" th:value="${options.get(0).id}" ng-repeat="v in test.question.options track by $index"-->
+                                    <!--                                                class="test-option test-option0  animated zoomIn faster" style="-->
+                                    <!--                                            height:90%;-->
+                                    <!--                                            width:50%;-->
+                                    <!--                                            top:0px;-->
+                                    <!--                                            left:0px;-->
+                                    <!--                                            background: coral" th:text="${options.get(0).title}">-->
+                                    <!--                                        </button>-->
+                                    <!--                                        <button type="submit" name="id"  th:value="${options.get(1).id}" ng-repeat="v in test.question.options track by $index"-->
+                                    <!--                                                class="test-option test-option0  animated zoomIn faster" style="-->
+                                    <!--                                            height:90%;-->
+                                    <!--                                            width:50%;-->
+                                    <!--                                            top:100%;-->
+                                    <!--                                            left:0px;-->
+                                    <!--                                            background: aqua" th:text="${options.get(1).title}">-->
+                                    <!--                                        </button>&lt;!&ndash; end ngRepeat: v in test.question.options track by $index &ndash;&gt;-->
+                                    <!--                                        <button type="submit" name="id"  th:value="${options.get(2).id}" ng-repeat="v in test.question.options track by $index"-->
+                                    <!--                                                class="test-option test-option1  animated zoomIn faster" style="-->
+                                    <!--                                            height:90%;-->
+                                    <!--                                            width:50%;-->
+                                    <!--                                            top:0px;-->
+                                    <!--                                            left:50%;-->
+                                    <!--                                            background: purple" th:text="${options.get(2).title}">-->
+                                    <!--                                        </button>-->
+                                    <!--                                        <button type="submit" name="id" th:value="${options.get(3).id}" ng-repeat="v in test.question.options track by $index"-->
+                                    <!--                                                class="test-option test-option1  animated zoomIn faster" style="-->
+                                    <!--                                            height:90%;-->
+                                    <!--                                            width:50%;-->
+                                    <!--                                            top:100%;-->
+                                    <!--                                            left:50%;-->
+                                    <!--                                            background: darkred" th:text="${options.get(3).title}">-->
+                                    <!--                                        </button>-->
+                                    <!--                                    </form>-->
+                                    <form method="post" th:action="@{/question/nextQuestion}">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr th:each="option, iterStat : ${options}">
+                                                <td>
+                                                    <button type="submit" name="id" th:value="${option.id}"
+                                                            class="btn-primary rainbow-border" th:text="${option.title}">
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- ngIf: test.question && test.question.type == 'multiquiz' && disableSave == false -->
+                        </div>
+                        <div class="test-container-inner ng-hide" ng-show="test.scene == 2">
+                            <div>
+                                <div class="message_scene ">
+                                    <div class="scene-background">
+
+                                        <div class="heading animated slideInDown"><span ng-bind="test.message"
+                                                                                        class="ng-binding"></span></div>
+                                        <div class="scene-image-container animated slideInUp">
+                                            <!-- ngIf: test.message_scene == 'success' -->
+                                            <!-- ngIf: test.message_scene == 'failed' -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test-container-inner ng-hide" ng-show="test.scene == 3">
+                            <div>
+                                <div class="message_scene ended">
+                                    <div class="scene-background">
+
+                                        <div class="heading animated slideInDown" style="top:116.39999999999998px">
+                                            <span>Тест завершено</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
+<div id="lightbox" class="lightbox" style="display: none;">
+    <div class="lb-outerContainer">
+        <div class="lb-container"><img class="lb-image"
+                                       src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
+            <div class="lb-loader"><a class="lb-cancel"></a></div>
+        </div>
+    </div>
+    <div class="lb-dataContainer">
+        <div class="lb-data">
+            <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
+            <div class="lb-closeContainer"><a class="lb-close"></a></div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    console.log(localStorage.getItem("userName"));
+</script>
+</html>
